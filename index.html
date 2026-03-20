@@ -205,6 +205,22 @@ Open Booking Form
 
 </div>
 
+<script>
+const sections = document.querySelectorAll(".section-box");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+</script>
+  
 </body>
 
 </html>
