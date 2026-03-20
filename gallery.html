@@ -123,6 +123,11 @@ images.forEach((img, index) => {
     currentIndex = index;
     lightboxImg.src = img.src;
     lightbox.style.display = "flex";
+    lightbox.style.opacity = "0";
+
+    setTimeout(() => {
+      lightbox.style.opacity = "1";
+    }, 10);
   });
 });
 
