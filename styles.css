@@ -1684,3 +1684,114 @@ p {
 }
   line-height: 1.6;
 }
+
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.section-box {
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 15px;
+  color: #5f6f79;
+}
+
+.hero h1 {
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.btn {
+  transition: all 0.25s ease;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+img {
+  display: block;
+}
+
+.mini-gallery img {
+  transition: 0.3s ease;
+}
+
+.mini-gallery img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mini-gallery {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+body {
+  animation: fadeInPage 0.6s ease;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+:root {
+  --radius: 16px;
+}
+
+.section-box,
+.highlight-card,
+.mini-gallery img,
+.image-break img {
+  border-radius: var(--radius);
+}
+
+body {
+  background: linear-gradient(to bottom, #eef3f6, #f7f9fb);
+}
