@@ -1829,3 +1829,22 @@ body {
   inset: 0;
   background: rgba(0,0,0,0.4);
 }
+
+.package-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.package-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+.package-details {
+  width: 100%;
+}
