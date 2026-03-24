@@ -114,14 +114,6 @@ main {
   flex: 1;
 }
 
-.section {
-  background: white;
-  padding: 28px;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-  margin-bottom: 24px;
-}
-
 .section-head h2 {
   margin-top: 0;
 }
@@ -152,35 +144,31 @@ main {
 
 .package-grid {
   display: grid;
+  grid-template-columns: repeat(4, 1fr); /* FORCE 4 IN ONE LINE */
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  align-items: stretch;
+  margin-top: 20px;
 }
 
-.package-card {
-  background: #f9fcff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 16px;
+@media (max-width: 1000px) {
+  .package-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.price-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.price-chip {
-  background: #eaf4fa;
-  padding: 8px;
-  border-radius: 8px;
-  text-align: center;
+@media (max-width: 600px) {
+  .package-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .package-card.featured {
-  background: linear-gradient(150deg,#0f3f58,#1a6e90);
-  color: white;
+  transform: scale(1.03);
+  box-shadow: 0 20px 50px rgba(8,47,66,0.25);
+}
+
+.package-card.featured p,
+.package-card.featured li {
+  color: #eaf6ff;
 }
 
 .btn {
@@ -329,7 +317,7 @@ color:#e9f4fb;
 color:#ffffff;
 }
 
-.package-card.featured .price-chip{
+.package-card.featured {
 
 background:rgba(255,255,255,0.15);
 
@@ -339,7 +327,7 @@ color:#ffffff;
 
 }
 
-.package-card.featured .price-chip small{
+.package-card.featured small{
 
 color:#cfe8f7;
 
@@ -368,63 +356,6 @@ padding:16px;
 }
 
 /* ===== PACKAGE PRICE LAYOUT FIX ===== */
-
-.price-row{
-
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-margin:12px 0 14px;
-
-}
-
-.price-chip{
-
-border:1px solid #c7dbe7;
-
-border-radius:12px;
-
-background:#eaf4fa;
-
-padding:12px;
-
-text-align:center;
-
-font-weight:600;
-
-}
-
-.price-chip small{
-
-display:block;
-
-text-transform:uppercase;
-
-letter-spacing:0.05em;
-
-color:#58707d;
-
-font-size:11px;
-
-margin-bottom:4px;
-
-}
-
-/* ===== PACKAGE CARD IMPROVEMENT ===== */
-
-.package-card{
-
-background:#f9fcff;
-
-border:1px solid #d6e6ef;
-
-border-radius:16px;
-
-padding:18px;
-
-transition:transform .15s ease, box-shadow .15s ease;
-
-}
 
 .package-card:hover{
 
@@ -490,14 +421,6 @@ box-shadow:0 6px 18px rgba(8,47,66,0.05);
 
 }
 
-.section{
-
-padding:34px 30px;
-
-}
-
-.card,
-.package-card,
 .policy-item{
 
 transition:all .2s ease;
@@ -507,26 +430,6 @@ transition:all .2s ease;
 .card:hover{
 
 transform:translateY(-2px);
-
-}
-
-.price-chip{
-
-font-size:18px;
-
-}
-
-.price-chip small{
-
-font-size:11px;
-
-}
-
-.price-chip{
-
-font-weight:700;
-
-letter-spacing:0.03em;
 
 }
 
@@ -819,16 +722,6 @@ font-size:14px;
 
 @media (max-width:600px){
 
-.price-row{
-grid-template-columns:1fr;
-}
-
-.package-card{
-padding:18px;
-}
-
-}
-
 @media (max-width:680px){
 
 .floating-book{
@@ -851,17 +744,6 @@ text-align:center;
 /* MOBILE SECTIONS */
 
 @media (max-width:600px){
-
-.section{
-padding:20px 15px;
-}
-
-.grid-2,
-.grid-3{
-grid-template-columns:1fr;
-}
-
-}
 
 /* MOBILE NAVIGATION */
 
@@ -1831,30 +1713,79 @@ body {
   background: rgba(0,0,0,0.4);
 }
 
-.package-card {
-  width: 100%;
-  max-width: 100%;
-}
-
-.package-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .package-card.featured {
   grid-column: span 1; /* prevents weird stretching */
-}
-
-.package-card {
-  word-wrap: break-word;
-}
-
-.package-card {
-  transition: all 0.25s ease;
 }
 
 .package-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.section-head .lead {
+  color: #5f6f7a;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.package-card {
+  background: #f9fcff;
+  border: 1px solid #d6e6ef;
+  border-radius: 16px;
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  transition: all 0.25s ease;
+}
+
+.price-row {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.price-chip {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+
+  background: #eaf4fa;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.package-card p {
+  color: #5f6f7a;
+}
+
+.package-card li {
+  color: #4a5d68;
+  font-size: 14px;
+}
+
+.package-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.section {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  margin-bottom: 40px;
+}
+
+.section-head h2 {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.kicker {
+  margin-bottom: 12px;
 }
